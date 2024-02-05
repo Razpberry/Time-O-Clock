@@ -2,26 +2,31 @@ import { numbers } from './list.js'
 
 const date = new Date();
 
-let hour = document.getElementById('hour');
-let minute = document.getElementById('minute');
+const time = document.getElementById('time')
+const hour = document.getElementById('hour');
+const minute = document.getElementById('minute');
+
 let hourNum = date.getHours();
 let hourMessage = ''
+
 let minuteNum = date.getMinutes();
 let minuteMessage = ''
+
 let sunCycle = ''
 
+setCycle(cycle) {
+  sunCycle = cycle
+  time.className = cycle
+}
+
 if (hourNum > 2 && hourNum < 9) {
-  sunCycle = 'sunrise'
-  document.getElementById('time').className = 'sunrise'
+  setCycle('sunrise')
 } else if (hourNum > 8 && hourNum < 15) {
-  sunCycle = 'noon'
-  document.getElementById('time').className = 'noon'
+  setCycle('noon')
 } else if (hourNum > 14 && hourNum < 21) {
-  sunCycle = 'sunset'
-  document.getElementById('time').className = 'sunset'
+  setCycle('sunset')
 } else {
-  sunCycle = 'night'
-  document.getElementById('time').className = 'night'
+  setCycle('night')
 }
 
 document.body.style.backgroundImage = "url(./images/" + sunCycle + ".jpeg)";
