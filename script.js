@@ -1,3 +1,6 @@
+//TODO create loading screen
+
+
 import { numbers } from './list.js'
 
 const date = new Date();
@@ -14,10 +17,10 @@ let minuteMessage = ''
 
 let sunCycle = ''
 
-setCycle(cycle) {
-  sunCycle = cycle
-  time.className = cycle
-}
+function setCycle(cycle) {
+  sunCycle = cycle;
+  time.className = cycle;
+};
 
 if (hourNum > 2 && hourNum < 9) {
   setCycle('sunrise')
